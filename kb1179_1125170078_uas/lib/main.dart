@@ -35,7 +35,7 @@ class SplashScreen1 extends StatelessWidget {
         children: [
           const SizedBox(height: 50),
 
-          // 🖼️ Gambar dari assets + shape circle
+          // 🖼️ Gambar di tengah dengan BoxDecoration
           Container(
             width: 200,
             height: 200,
@@ -53,7 +53,7 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // 📝 Title - bisa ubah teks sesuai keinginan
+          // 📝 Judul besar
           const Text(
             'Welcome to My App',
             style: TextStyle(
@@ -65,9 +65,9 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 8),
 
-          // 🧾 Subtitle (2 baris teks)
+          // 🧾 Subtitle dua baris
           const Text(
-            'This is your personal digital assistant.\nMake every task simpler and faster.',
+            'Your smart assistant for everyday life.\nSimplify your tasks easily!',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
@@ -78,13 +78,13 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 32),
 
-          // 🔵 Bullet kecil - 3 buah dengan Row
+          // 🔵 Bullet kecil - 3 lingkaran
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(" bullet ke 1 "),
-              Text(" bullet ke 2 "),
-              Text(" bullet ke 3 "),
+            children: [
+              _buildDot(true), // aktif
+              _buildDot(false), // tidak aktif
+              _buildDot(false), // tidak aktif
             ],
           ),
 
@@ -117,7 +117,7 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // 🧾 Footer - NIM
+          // 🧾 Footer NIM
           const Text(
             'NIM: 1125170078',
             style: TextStyle(fontSize: 14, color: Colors.grey),
@@ -126,9 +126,26 @@ class SplashScreen1 extends StatelessWidget {
       ),
     );
   }
+
+  // Fungsi untuk membuat bullet (aktif & non-aktif)
+  static Widget _buildDot(bool isActive) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      height: 10,
+      width: 10,
+      decoration: BoxDecoration(
+        // 🎨 Warna menggunakan HEX dari Coolors.co
+        color: isActive
+            ? const Color(0xFF84a98c) // hijau mencolok untuk aktif
+            : const Color(0xFFedede9), // abu muda untuk non-aktif
+        shape: BoxShape.circle,
+      ),
+    );
+  }
 }
 
-// Halaman utama
+// Halaman Utama
 class HalamanUtama extends StatelessWidget {
   const HalamanUtama({super.key});
 
