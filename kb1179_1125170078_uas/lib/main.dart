@@ -4,13 +4,14 @@ void main() {
   runApp(MyApp());
 }
 
+// Class utama aplikasi
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Nim: 1234567, Ketut",
+      title: "NIM: 1234567, Ketut",
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Contoh class Splash Screen 1
 class SplashScreen1 extends StatelessWidget {
   const SplashScreen1({super.key});
 
@@ -28,6 +30,24 @@ class SplashScreen1 extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text('Splash Screen 1', style: TextStyle(fontSize: 24)),
+      ),
+    );
+  }
+}
+
+// Ini adalah contoh code pada saat di-generate, nama class bisa kalian ubah sesuai kebutuhan
+class HalamanUtama extends StatelessWidget {
+  const HalamanUtama({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Halaman Utama")),
+      body: Center(
+        child: Text(
+          "Selamat Datang di Halaman Utama!",
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     );
   }
