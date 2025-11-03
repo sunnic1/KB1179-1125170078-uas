@@ -4,6 +4,7 @@ void main() {
   runApp(const MyApp());
 }
 
+// Class utama aplikasi
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Splash Screen
 class SplashScreen1 extends StatelessWidget {
   const SplashScreen1({super.key});
 
@@ -33,15 +35,16 @@ class SplashScreen1 extends StatelessWidget {
         children: [
           const SizedBox(height: 50),
 
-          // 🖼️ Gambar bulat
+          // 🖼️ Gambar dari assets + shape circle
           Container(
             width: 200,
             height: 200,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
+              color: Colors.amber,
               image: DecorationImage(
                 image: AssetImage(
-                  "assets/images/mythical-dragon-beast-anime-style.jpg",
+                  'assets/images/mythical-dragon-beast-anime-style.jpg',
                 ),
                 fit: BoxFit.cover,
               ),
@@ -50,9 +53,9 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // 🏷️ Title teks hitam di tengah
+          // 📝 Title - bisa ubah teks sesuai keinginan
           const Text(
-            'Welcome', // ← Kata-kata
+            'Welcome to My App',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -60,11 +63,11 @@ class SplashScreen1 extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
 
-          // 📝 Subtitle dua baris
+          // 🧾 Subtitle (2 baris teks)
           const Text(
-            'Jangan Lupa Login Dulu Ya!!!', // ← ubah sesuai kata kalian
+            'This is your personal digital assistant.\nMake every task simpler and faster.',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
@@ -75,15 +78,19 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 32),
 
-          // 🔵 Indicator bulatan kecil
+          // 🔵 Bullet kecil - 3 buah dengan Row
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [_buildDot(true), _buildDot(false), _buildDot(false)],
+            children: const [
+              Text(" bullet ke 1 "),
+              Text(" bullet ke 2 "),
+              Text(" bullet ke 3 "),
+            ],
           ),
 
           const SizedBox(height: 40),
 
-          // ▶️ Tombol Continue
+          // 🟩 Tombol Continue
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
@@ -110,7 +117,7 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // 🧾 NIM footer
+          // 🧾 Footer - NIM
           const Text(
             'NIM: 1125170078',
             style: TextStyle(fontSize: 14, color: Colors.grey),
@@ -119,22 +126,9 @@ class SplashScreen1 extends StatelessWidget {
       ),
     );
   }
-
-  // Fungsi membuat dot kecil
-  static Widget _buildDot(bool isActive) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      height: 10,
-      width: 10,
-      decoration: BoxDecoration(
-        color: isActive ? Colors.green : Colors.green.shade100,
-        shape: BoxShape.circle,
-      ),
-    );
-  }
 }
 
+// Halaman utama
 class HalamanUtama extends StatelessWidget {
   const HalamanUtama({super.key});
 
