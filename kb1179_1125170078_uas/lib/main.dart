@@ -11,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, // ✅ Menghilangkan tulisan DEBUG
       title: "NIM: 1125170078, Rifqi Arip Sunni Manurung",
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
-      home: const SplashScreen1(), // memanggil class splash screen 1
+      home: const SplashScreen1(),
     );
   }
 }
@@ -33,7 +34,7 @@ class SplashScreen1 extends StatelessWidget {
         children: [
           const SizedBox(height: 50),
 
-          // Membuat lingkaran warna amber
+          // Lingkaran amber (bisa diganti gambar nanti)
           Container(
             width: 250,
             height: 250,
@@ -45,21 +46,25 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // Tambahkan widget lain di bawah sini nanti
           const Text(
-            'Selamat Datang!',
+            'Welcome',
             style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+              fontSize: 28, // Ukuran besar
+              fontWeight: FontWeight.bold, // Membuat huruf tebal
+              color: Colors.black, // Warna teks
             ),
           ),
 
           const SizedBox(height: 8),
 
           const Text(
-            'Aplikasi Informasi Mahasiswa',
-            style: TextStyle(fontSize: 16, color: Colors.grey),
+            'Forgot to bring your wallet when you are shopping?',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16, // Ukuran lebih kecil dari judul
+              color: Colors.green, // Warna hijau muda
+              fontWeight: FontWeight.w400, // Sedikit lebih tipis
+            ),
           ),
 
           const SizedBox(height: 32),
@@ -95,6 +100,14 @@ class SplashScreen1 extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+          ),
+
+          const SizedBox(height: 50),
+
+          // ✅ Tambahkan NIM di bagian footer bawah
+          const Text(
+            'NIM: 1125170078',
+            style: TextStyle(fontSize: 14, color: Colors.grey),
           ),
         ],
       ),
