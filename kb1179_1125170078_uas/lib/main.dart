@@ -10,10 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Onboarding App",
-      home: SplashScreen1(), // ⬅️ mulai dari halaman pertama
+      title: 'Nim : 1125170078 , Rifqi Arip Sunni Manurung',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+      ),
+      home: const SplashScreen1(), // ⬅️ mulai dari halaman pertama
     );
   }
 }

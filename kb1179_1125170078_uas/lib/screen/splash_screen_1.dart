@@ -20,7 +20,7 @@ class SplashScreen1 extends StatelessWidget {
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage(
-                    "assets/images/mythical-dragon-beast-anime-style.jpg",
+                    "assets/images/anime-style-mythical-dragon.jpg",
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -33,7 +33,7 @@ class SplashScreen1 extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-              "Forgot to bring your wallet\nwhen you are shopping?",
+              "Berikut adalah SplashScreen Pertama. Geser untuk Melihat SplashScreen Kedua!",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.black54),
             ),
@@ -93,7 +93,13 @@ class SplashScreen1 extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 70),
+            const SizedBox(height: 20),
+            // 🔹 Tambahan teks NIM di footer
+            const Text(
+              "NIM: 1125170078",
+              style: TextStyle(fontSize: 12, color: Colors.black54),
+            ),
+            const SizedBox(height: 50),
           ],
         ),
       ),

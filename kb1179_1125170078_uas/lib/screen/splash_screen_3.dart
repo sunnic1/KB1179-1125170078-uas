@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart'; // import halaman Login
 
 class SplashScreen3 extends StatelessWidget {
   const SplashScreen3({super.key});
@@ -11,6 +12,8 @@ class SplashScreen3 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
+
+            // 🔹 Tambahan Gambar Lingkaran
             Container(
               width: 180,
               height: 180,
@@ -18,12 +21,13 @@ class SplashScreen3 extends StatelessWidget {
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage(
-                    "assets/images/anime-style-mythical-dragon-creature",
+                    "assets/images/mythical-dragon-beast-anime-style.jpg",
                   ),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
+
             const SizedBox(height: 30),
             const Text(
               "Welcome",
@@ -31,11 +35,14 @@ class SplashScreen3 extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-              "Let's try Wallie now!\nAnd get the best solution.",
+              "Berikut adalah SplashScreen Ketiga.\nTap Get Started untuk ke Halaman Login!",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.black54),
             ),
+
             const Spacer(),
+
+            // 🔹 Bullet indikator
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -67,29 +74,41 @@ class SplashScreen3 extends StatelessWidget {
                 ),
               ],
             ),
+
             const SizedBox(height: 50),
+
+            // 🔹 Tombol Get Started -> arahkan ke LoginPage
             Container(
-              margin: const EdgeInsets.only(left: 40, right: 40),
+              margin: const EdgeInsets.symmetric(horizontal: 40),
               child: SizedBox(
                 height: 40,
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('🎉 Onboarding selesai!')),
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (_) => const LoginPage()),
+                      (Route<dynamic> route) =>
+                          false, // hapus semua route sebelumnya
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF4CAF50),
                   ),
                   child: const Text(
-                    "Get Started",
+                    'Get Started',
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 70),
+
+            const SizedBox(height: 20),
+            const Text(
+              'NIM: 1125170078',
+              style: TextStyle(fontSize: 12, color: Colors.black54),
+            ),
+            const SizedBox(height: 50),
           ],
         ),
       ),
