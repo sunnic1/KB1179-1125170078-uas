@@ -4,7 +4,6 @@ void main() {
   runApp(const MyApp());
 }
 
-// 🌱 Class utama aplikasi
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// 💫 Splash Screen
 class SplashScreen1 extends StatelessWidget {
   const SplashScreen1({super.key});
 
@@ -35,19 +33,16 @@ class SplashScreen1 extends StatelessWidget {
         children: [
           const SizedBox(height: 50),
 
-          // 🖼️ Gambar dari assets
+          // 🖼️ Gambar bulat
           Container(
             width: 200,
             height: 200,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.amber,
-            ),
-            child: ClipOval(
-              child: Image.asset(
-                'assets/images/mythical-dragon-beast-anime-style.jpg',
-                width: 200,
-                height: 200,
+              image: DecorationImage(
+                image: AssetImage(
+                  "assets/images/mythical-dragon-beast-anime-style.jpg",
+                ),
                 fit: BoxFit.cover,
               ),
             ),
@@ -55,9 +50,9 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // 🏷️ Judul tebal
+          // 🏷️ Title teks hitam di tengah
           const Text(
-            'Welcome',
+            'Welcome', // ← Kata-kata
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -65,11 +60,11 @@ class SplashScreen1 extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
 
-          // ✨ Subjudul berwarna hijau
+          // 📝 Subtitle dua baris
           const Text(
-            'Jangan Lupa Login Dahulu Untuk Akes Menu Utama!',
+            'Jangan Lupa Login Dulu Ya!!!', // ← ubah sesuai kata kalian
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
@@ -80,7 +75,7 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 32),
 
-          // 🔘 Bullet kecil
+          // 🔵 Indicator bulatan kecil
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [_buildDot(true), _buildDot(false), _buildDot(false)],
@@ -88,7 +83,7 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 40),
 
-          // 🟩 Tombol Continue
+          // ▶️ Tombol Continue
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
@@ -115,7 +110,7 @@ class SplashScreen1 extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // 🧾 NIM di footer
+          // 🧾 NIM footer
           const Text(
             'NIM: 1125170078',
             style: TextStyle(fontSize: 14, color: Colors.grey),
@@ -125,7 +120,7 @@ class SplashScreen1 extends StatelessWidget {
     );
   }
 
-  // 🔹 Widget indikator dot
+  // Fungsi membuat dot kecil
   static Widget _buildDot(bool isActive) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
@@ -140,18 +135,13 @@ class SplashScreen1 extends StatelessWidget {
   }
 }
 
-// 🏠 Halaman utama setelah splash
 class HalamanUtama extends StatelessWidget {
   const HalamanUtama({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Halaman Utama"),
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
-      ),
+      appBar: AppBar(title: const Text("Halaman Utama")),
       body: const Center(
         child: Text(
           "Selamat Datang di Halaman Utama!",
