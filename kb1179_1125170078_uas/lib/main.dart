@@ -4,7 +4,6 @@ void main() {
   runApp(const MyApp());
 }
 
-// Class utama aplikasi
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -12,17 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "NIM: 1125170078, Rifqi Arip Sunni Manurung",
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-      ),
+      title: "Splash Screen Example",
       home: const SplashScreen1(),
     );
   }
 }
 
-// Splash Screen
 class SplashScreen1 extends StatelessWidget {
   const SplashScreen1({super.key});
 
@@ -33,9 +27,7 @@ class SplashScreen1 extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 50),
-
-          // 🖼️ Gambar di tengah dengan BoxDecoration
+          // 🖼️ Gambar
           Container(
             width: 200,
             height: 200,
@@ -51,111 +43,92 @@ class SplashScreen1 extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
 
-          // 📝 Judul besar
+          // 📝 Title dan subtitle
           const Text(
-            'Welcome to My App',
+            "Welcome",
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
-
           const SizedBox(height: 8),
-
-          // 🧾 Subtitle dua baris
           const Text(
-            'Your smart assistant for everyday life.\nSimplify your tasks easily!',
+            "Forgot to bring your wallet\nwhen you are shopping?",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.green,
-              fontWeight: FontWeight.w400,
-            ),
+            style: TextStyle(fontSize: 14, color: Colors.green),
           ),
 
-          const SizedBox(height: 32),
+          const SizedBox(height: 30),
 
-          // 🔵 Bullet kecil - 3 lingkaran
+          // 🔘 Bullet indicators (Row di tengah)
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildDot(true), // aktif
-              _buildDot(false), // tidak aktif
-              _buildDot(false), // tidak aktif
-            ],
+            children: [_buildDot(true), _buildDot(false), _buildDot(false)],
           ),
 
-          const SizedBox(height: 40),
+          const SizedBox(height: 30),
 
-          // 🟩 Tombol Continue
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
-              padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+          // 🟩 Tombol Continue (bukan dalam Row)
+          Container(
+            child: ElevatedButton(
+              onPressed: () {
+                // TODO: call next page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NextPage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF4CAF50), // Warna hijau
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 60,
+                  vertical: 14,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                "Continue",
+                style: TextStyle(fontSize: 14, color: Colors.white),
               ),
             ),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const HalamanUtama()),
-              );
-            },
-            child: const Text(
-              'Continue',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 50),
-
-          // 🧾 Footer NIM
-          const Text(
-            'NIM: 1125170078',
-            style: TextStyle(fontSize: 14, color: Colors.grey),
           ),
         ],
       ),
     );
   }
 
-  // Fungsi untuk membuat bullet (aktif & non-aktif)
+  // Fungsi bullet (Container bulat)
   static Widget _buildDot(bool isActive) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
+    return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4),
-      height: 10,
       width: 10,
+      height: 10,
       decoration: BoxDecoration(
-        // 🎨 Warna menggunakan HEX dari Coolors.co
-        color: isActive
-            ? const Color(0xFF84a98c) // hijau mencolok untuk aktif
-            : const Color(0xFFedede9), // abu muda untuk non-aktif
         shape: BoxShape.circle,
+        color: isActive
+            ? const Color(0xFF84a98c) // Warna aktif (pallet terang)
+            : const Color(0xFFedede9), // Warna non aktif (pallet lembut)
       ),
     );
   }
 }
 
-// Halaman Utama
-class HalamanUtama extends StatelessWidget {
-  const HalamanUtama({super.key});
+// 🔄 Halaman berikut
+class NextPage extends StatelessWidget {
+  const NextPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Halaman Utama")),
+      appBar: AppBar(title: const Text("Next Page")),
       body: const Center(
         child: Text(
-          "Selamat Datang di Halaman Utama!",
+          "Selamat datang di halaman berikutnya!",
           style: TextStyle(fontSize: 20),
         ),
       ),
