@@ -32,7 +32,7 @@ class SplashScreen2 extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-              "Berikut adalah SplashScreen Kedua. Geser untuk Melihat SplashScreen Ketiga!",
+              "Berikut adalah SplashScreen Kedua.Geser untuk Melihat SplashScreen Ketiga!",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.black54),
             ),
@@ -70,17 +70,15 @@ class SplashScreen2 extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             Container(
-              margin: const EdgeInsets.only(left: 40, right: 40),
+              margin: const EdgeInsets.symmetric(horizontal: 40),
               child: SizedBox(
                 height: 40,
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const SplashScreen3(),
-                      ),
+                      MaterialPageRoute(builder: (_) => const SplashScreen3()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -91,7 +89,6 @@ class SplashScreen2 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            // 🔹 Tambahan teks NIM di footer
             const Text(
               "NIM: 1125170078",
               style: TextStyle(fontSize: 12, color: Colors.black54),

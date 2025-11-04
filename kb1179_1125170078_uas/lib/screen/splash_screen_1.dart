@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'splash_screen_2.dart'; // panggil halaman berikutnya
+import 'splash_screen_2.dart';
 
 class SplashScreen1 extends StatelessWidget {
   const SplashScreen1({super.key});
@@ -12,7 +12,6 @@ class SplashScreen1 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            // 🔹 Gambar lingkaran
             Container(
               width: 180,
               height: 180,
@@ -38,7 +37,6 @@ class SplashScreen1 extends StatelessWidget {
               style: TextStyle(fontSize: 14, color: Colors.black54),
             ),
             const Spacer(),
-            // 🔹 Bullet indikator
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,19 +69,16 @@ class SplashScreen1 extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 50),
-            // 🔹 Tombol Continue
             Container(
-              margin: const EdgeInsets.only(left: 40, right: 40),
+              margin: const EdgeInsets.symmetric(horizontal: 40),
               child: SizedBox(
                 height: 40,
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const SplashScreen2(),
-                      ),
+                      MaterialPageRoute(builder: (_) => const SplashScreen2()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -94,7 +89,6 @@ class SplashScreen1 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            // 🔹 Tambahan teks NIM di footer
             const Text(
               "NIM: 1125170078",
               style: TextStyle(fontSize: 12, color: Colors.black54),

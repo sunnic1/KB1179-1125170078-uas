@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login.dart'; // import halaman Login
+import 'login.dart';
 
 class SplashScreen3 extends StatelessWidget {
   const SplashScreen3({super.key});
@@ -12,8 +12,6 @@ class SplashScreen3 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-
-            // 🔹 Tambahan Gambar Lingkaran
             Container(
               width: 180,
               height: 180,
@@ -27,7 +25,6 @@ class SplashScreen3 extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 30),
             const Text(
               "Welcome",
@@ -39,10 +36,7 @@ class SplashScreen3 extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.black54),
             ),
-
             const Spacer(),
-
-            // 🔹 Bullet indikator
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -74,10 +68,7 @@ class SplashScreen3 extends StatelessWidget {
                 ),
               ],
             ),
-
             const SizedBox(height: 50),
-
-            // 🔹 Tombol Get Started -> arahkan ke LoginPage
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 40),
               child: SizedBox(
@@ -88,24 +79,22 @@ class SplashScreen3 extends StatelessWidget {
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (_) => const LoginPage()),
-                      (Route<dynamic> route) =>
-                          false, // hapus semua route sebelumnya
+                      (Route<dynamic> route) => false,
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF4CAF50),
                   ),
                   child: const Text(
-                    'Get Started',
+                    "Get Started",
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
               ),
             ),
-
             const SizedBox(height: 20),
             const Text(
-              'NIM: 1125170078',
+              "NIM: 1125170078",
               style: TextStyle(fontSize: 12, color: Colors.black54),
             ),
             const SizedBox(height: 50),
